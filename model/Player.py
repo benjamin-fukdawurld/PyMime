@@ -17,20 +17,22 @@ class Player:
     def score(self, value):
         if value >= 0:
             self.__score = value
-
-        raise ValueError("value is negative")
+        else:
+            raise ValueError("value is negative")
 
     def __add__(self, value):
         if value >= 0:
             return self.__score + value
 
-        raise ValueError("value is negative")
+        else:
+            raise ValueError("value is negative")
 
     def __iadd__(self, value):
         if value >= 0:
             self.__score += value
 
-        raise ValueError("value is negative")
+        else:
+            raise ValueError("value is negative")
 
     def __lt__(self, other):
         return self.score < other.score

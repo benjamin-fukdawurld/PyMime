@@ -1,17 +1,19 @@
-import model.Player
-import model.ImageDirectory
+import model.Player as Player
+import model.Engine as Engine
 
-p = model.Player.Player(name = "test")
-p2 = model.Player.Player()
 
-imdir = model.ImageDirectory.ImageDirectory(path = "images")
-imdir.loadPaths()
-print(imdir.image_paths)
-imdir.shufflePaths()
-print(imdir.image_paths)
+import view.MainWindow
 
-print(p)
-print(p2)
+import sys
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
+
+app = QApplication(sys.argv)
+engine = Engine.Engine()
+mainwindow = view.MainWindow.MainWindow(engine)
+mainwindow.show()
+app.exec_()
 
 
 # import random

@@ -7,20 +7,26 @@ class ImageDirectory:
         self.__path = kwargs.get("path", ".")
         self.__image_paths = []
 
+    def shuffleImages(self):
+        random.shuffle(self.__image_paths)
+
+    def loadImages(self):
+        for f in listdir(self.path):
+            p = join(self.__path, f)
+            if isfile(p):
+                self.__image_paths.append(p)
+
     @property
     def path(self):
         return self.__path
-
-    def shufflePaths(self):
-        random.shuffle(self.__image_paths)
-
-    def loadPaths(self):
-        self.__image_paths = [f for f in listdir(self.path) if isfile(join(self.path, f))]
 
     @path.setter
     def path(self, value):
         self.__path = value
         self.__image_paths = []
+
+    def add_image_paths(self, paths):
+        self.__image_paths += paths
 
     @property
     def image_paths(self):

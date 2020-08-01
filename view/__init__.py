@@ -1,0 +1,1 @@
+__all__ = ["MainWindow", "CentralWidget", "RightPanel", "ScoreWidget"]
